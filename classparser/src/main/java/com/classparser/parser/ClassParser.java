@@ -6,40 +6,40 @@ public class ClassParser {
 
 	public static void classTypeParser(int access_flags) {
 		int flag;
-		// 是否为public 类型
+		// 鏄惁涓簆ublic 绫诲瀷
 		flag = access_flags & ClassType.ACC_PUBLIC.getValue();
 		if (flag == ClassType.ACC_PUBLIC.getValue()) {
-			System.out.println("public：是");
+			System.out.println("public锛氭槸");
 		}
 		// final
 		flag = access_flags & ClassType.ACC_FINAL.getValue();
 		if (flag == ClassType.ACC_FINAL.getValue()) {
-			System.out.println("final：是");
+			System.out.println("final锛氭槸");
 		}
 		// interface
 		flag = access_flags & ClassType.ACC_INTERFACE.getValue();
 		if (flag == ClassType.ACC_INTERFACE.getValue()) {
-			System.out.println("interface：是");
+			System.out.println("interface锛氭槸");
 		}
 		// abstract
 		flag = access_flags & ClassType.ACC_ABSTRACT.getValue();
 		if (flag == ClassType.ACC_ABSTRACT.getValue()) {
-			System.out.println("abstract：是");
+			System.out.println("abstract锛氭槸");
 		}
 		// synthetic
 		flag = access_flags & ClassType.ACC_SYNTHETIC.getValue();
 		if (flag == ClassType.ACC_SYNTHETIC.getValue()) {
-			System.out.println("synthetic：是");
+			System.out.println("synthetic锛氭槸");
 		}
 		// annotation
 		flag = access_flags & ClassType.ACC_ANNOTATION.getValue();
 		if (flag == ClassType.ACC_ANNOTATION.getValue()) {
-			System.out.println("annotation：是");
+			System.out.println("annotation锛氭槸");
 		}
 		// enum
 		flag = access_flags & ClassType.ACC_ENUM.getValue();
 		if (flag == ClassType.ACC_ENUM.getValue()) {
-			System.out.println("enum：是");
+			System.out.println("enum锛氭槸");
 		}
 	}
 }

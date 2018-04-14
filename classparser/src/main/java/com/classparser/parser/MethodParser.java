@@ -13,15 +13,15 @@ public class MethodParser {
 		int access_flags = ClassUtil.readInteger(in, 2);
 		int name_index = ClassUtil.readInteger(in, 2);
 		int descriptor_index = ClassUtil.readInteger(in, 2);
-		System.out.println("\taccess_flags£º" + access_flags);
-		System.out.print("\tname_index£º" + name_index);
+		System.out.println("\taccess_flagsï¼š" + access_flags);
+		System.out.print("\tname_indexï¼š" + name_index);
 		List<String> name = ClassUtil.getValue(map, name_index);
-		System.out.println("£º" + name);
-		System.out.print("\tdescriptor£º" + descriptor_index);
+		System.out.println("ï¼š" + name);
+		System.out.print("\tdescriptorï¼š" + descriptor_index);
 		List<String> descriptor = ClassUtil.getValue(map, descriptor_index);
-		System.out.println("£º" + descriptor);
+		System.out.println("ï¼š" + descriptor);
 		int attributes_count = ClassUtil.readInteger(in, 2);
-		System.out.println("\tattributes_count£º" + attributes_count);
+		System.out.println("\tattributes_countï¼š" + attributes_count);
 		for (int i = 0; i < attributes_count; i++) {
 			AttributeParser.parserAttribute(in,map);
 		}

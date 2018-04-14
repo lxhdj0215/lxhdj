@@ -11,11 +11,11 @@ import com.classparser.util.ClassUtil;
 public class AttributeParser {
 	public static void parserAttribute(InputStream in, Map<Integer, ConstantPool> map) throws IOException {
 		int attribute_name_index = ClassUtil.readInteger(in, 2);
-		System.out.print("\tattribute_name_index£º" + attribute_name_index);
+		System.out.print("\tattribute_name_indexï¼š" + attribute_name_index);
 		List<String> name = ClassUtil.getValue(map, attribute_name_index);
-		System.out.println("£º" + name);
+		System.out.println("ï¼š" + name);
 		int attribute_length = ClassUtil.readInteger(in, 4);
-		System.out.println("\tattribute_length£º" + attribute_length);
+		System.out.println("\tattribute_lengthï¼š" + attribute_length);
 		if ("Code".equals(name.get(0))) {
 			readCode(in, map);
 		} else if ("LineNumberTable".equals(name.get(0))) {
@@ -29,57 +29,57 @@ public class AttributeParser {
 
 	public static void readLocalVariableTable(InputStream in) throws IOException {
 		int local_variable_table_length = ClassUtil.readInteger(in, 2);
-		System.out.println("\tlocal_variable_table_length£º" + local_variable_table_length);
+		System.out.println("\tlocal_variable_table_lengthï¼š" + local_variable_table_length);
 		for (int i = 0; i < local_variable_table_length; i++) {
 			int start_pc = ClassUtil.readInteger(in, 2);
-			System.out.println("\tstart_pc£º" + start_pc);
+			System.out.println("\tstart_pcï¼š" + start_pc);
 			int length = ClassUtil.readInteger(in, 2);
-			System.out.println("\tlength£º" + length);
+			System.out.println("\tlengthï¼š" + length);
 			int name_index = ClassUtil.readInteger(in, 2);
-			System.out.println("\tname_index£º" + name_index);
+			System.out.println("\tname_indexï¼š" + name_index);
 			int descriptor_index = ClassUtil.readInteger(in, 2);
-			System.out.println("\tdescriptor_index£º" + descriptor_index);
+			System.out.println("\tdescriptor_indexï¼š" + descriptor_index);
 			int index = ClassUtil.readInteger(in, 2);
-			System.out.println("\tindex£º" + index);
+			System.out.println("\tindexï¼š" + index);
 		}
 	}
 
 	public static void readLineNumberTable(InputStream in) throws IOException {
 		int line_number_table_length = ClassUtil.readInteger(in, 2);
-		System.out.println("\tline_number_table_length£º" + line_number_table_length);
+		System.out.println("\tline_number_table_lengthï¼š" + line_number_table_length);
 		for (int i = 0; i < line_number_table_length; i++) {
 			int start_pc = ClassUtil.readInteger(in, 2);
-			System.out.println("\tstart_pc£º" + start_pc);
+			System.out.println("\tstart_pcï¼š" + start_pc);
 			int line_number = ClassUtil.readInteger(in, 2);
-			System.out.println("\tline_number£º" + line_number);
+			System.out.println("\tline_numberï¼š" + line_number);
 		}
 	}
-	
+
 	public static void readSourceFile(InputStream in, Map<Integer, ConstantPool> map) throws IOException {
 		int sourcefile_index = ClassUtil.readInteger(in, 2);
-		System.out.print("\tsourcefile_index£º" + sourcefile_index);
+		System.out.print("\tsourcefile_indexï¼š" + sourcefile_index);
 		List<String> name = ClassUtil.getValue(map, sourcefile_index);
-		System.out.println("£º" + name);
+		System.out.println("ï¼š" + name);
 	}
 
 	public static void readCode(InputStream in, Map<Integer, ConstantPool> map) throws IOException {
 		int max_stack = ClassUtil.readInteger(in, 2);
-		System.out.println("\tmax_stack£º" + max_stack);
+		System.out.println("\tmax_stackï¼š" + max_stack);
 		int max_locals = ClassUtil.readInteger(in, 2);
-		System.out.println("\tmax_locals£º" + max_locals);
+		System.out.println("\tmax_localsï¼š" + max_locals);
 		int code_length = ClassUtil.readInteger(in, 4);
-		System.out.println("\tcode_length£º" + code_length);
+		System.out.println("\tcode_lengthï¼š" + code_length);
 		for (int i = 0; i < code_length; i++) {
 			int code = ClassUtil.readInteger(in, 1);
 			System.out.println("\t" + i + ":" + Integer.toHexString(code));
 		}
 		int exception_table_lenth = ClassUtil.readInteger(in, 2);
-		System.out.println("\texception_table_lenth£º" + exception_table_lenth);
+		System.out.println("\texception_table_lenthï¼š" + exception_table_lenth);
 		for (int i = 0; i < exception_table_lenth; i++) {
 
 		}
 		int attributes_count = ClassUtil.readInteger(in, 2);
-		System.out.println("\tattributes_count£º" + attributes_count);
+		System.out.println("\tattributes_countï¼š" + attributes_count);
 		for (int i = 0; i < attributes_count; i++) {
 			parserAttribute(in, map);
 		}

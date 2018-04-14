@@ -4,20 +4,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ConstantPoolUtil {
-	private static final String CONSTANT_UTF8_INFO = "UTF-8±àÂëµÄ×Ö·û´®";
-	private static final String CONSTANT_INTEGER_INFO = "ÕûĞÎ×ÖÃæÁ¿";
-	private static final String CONSTANT_FLOAT_INFO = "¸¡µãĞÍ×ÖÃæÁ¿";
-	private static final String CONSTANT_LONG_INFO = "³¤ÕûĞÎ×ÖÃæÁ¿";
-	private static final String CONSTANT_DOUBLE_INFO = "Ë«¾«¶È¸¡µãĞÍ×ÖÃæÁ¿";
-	private static final String CONSTANT_CLASS_INFO = "Àà»ò½Ó¿ÚµÄ·ûºÅÒıÓÃ";
-	private static final String CONSTANT_STRING_INFO = "×Ö·û´®ÀàĞÍµÄ×ÖÃæÁ¿";
-	private static final String CONSTANT_FIELDREF_INFO = "×Ö¶ÎµÄ·ûºÅÒıÓÃ";
-	private static final String CONSTANT_METHODREF_INFO = "ÀàÖĞ·½·¨µÄ·ûºÅÒıÓÃ";
-	private static final String CONSTANT_INTERFACEMETHODREF_INFO = "½Ó¿ÚÖĞ·½·¨µÄ·ûºÅÒıÓÃ";
-	private static final String CONSTANT_NAMEANDTYPE_INFO = "×Ö¶ÎºÍ·½·¨µÄÃû³ÆÒÔ¼°ÀàĞÍµÄ·ûºÅÒıÓÃ";
-	private static final String CONSTANT_METHODHANDLE_INFO = "±íÊ¾·½·¨¾ä±ú";
-	private static final String CONSTANT_METHODTYPE_INFO = "±êÊ¶·½·¨ÀàĞÍ";
-	private static final String CONSTANT_INVOKEDYNAMIC_INFO = "±íÊ¾Ò»¸ö¶¯Ì¬·½·¨µ÷ÓÃµã";
+	private static final String CONSTANT_UTF8_INFO = "UTF-8ç¼–ç çš„å­—ç¬¦ä¸²";
+	private static final String CONSTANT_INTEGER_INFO = "æ•´å½¢å­—é¢é‡";
+	private static final String CONSTANT_FLOAT_INFO = "æµ®ç‚¹å‹å­—é¢é‡";
+	private static final String CONSTANT_LONG_INFO = "é•¿æ•´å½¢å­—é¢é‡";
+	private static final String CONSTANT_DOUBLE_INFO = "åŒç²¾åº¦æµ®ç‚¹å‹å­—é¢é‡";
+	private static final String CONSTANT_CLASS_INFO = "ç±»æˆ–æ¥å£çš„ç¬¦å·å¼•ç”¨";
+	private static final String CONSTANT_STRING_INFO = "å­—ç¬¦ä¸²ç±»å‹çš„å­—é¢é‡";
+	private static final String CONSTANT_FIELDREF_INFO = "å­—æ®µçš„ç¬¦å·å¼•ç”¨";
+	private static final String CONSTANT_METHODREF_INFO = "ç±»ä¸­æ–¹æ³•çš„ç¬¦å·å¼•ç”¨";
+	private static final String CONSTANT_INTERFACEMETHODREF_INFO = "æ¥å£ä¸­æ–¹æ³•çš„ç¬¦å·å¼•ç”¨";
+	private static final String CONSTANT_NAMEANDTYPE_INFO = "å­—æ®µå’Œæ–¹æ³•çš„åç§°ä»¥åŠç±»å‹çš„ç¬¦å·å¼•ç”¨";
+	private static final String CONSTANT_METHODHANDLE_INFO = "è¡¨ç¤ºæ–¹æ³•å¥æŸ„";
+	private static final String CONSTANT_METHODTYPE_INFO = "æ ‡è¯†æ–¹æ³•ç±»å‹";
+	private static final String CONSTANT_INVOKEDYNAMIC_INFO = "è¡¨ç¤ºä¸€ä¸ªåŠ¨æ€æ–¹æ³•è°ƒç”¨ç‚¹";
 
 	private static final String CONSTANT_UTF8_METHOD = "parserUtf8Info";
 	private static final String CONSTANT_INTEGER_METHOD = "readIntegerInfo";
@@ -30,9 +30,9 @@ public class ConstantPoolUtil {
 	private static final String CONSTANT_METHODREF_METHOD = "readMethodRefInfo";
 	private static final String CONSTANT_INTERFACEMETHODREF_METHOD = "readInterfaceMethodRefInfo";
 	private static final String CONSTANT_NAMEANDTYPE_METHOD = "readNameAndTypeInfo";
-	private static final String CONSTANT_METHODHANDLE_METHOD = "±íÊ¾·½·¨¾ä±ú";
-	private static final String CONSTANT_METHODTYPE_METHOD = "±êÊ¶·½·¨ÀàĞÍ";
-	private static final String CONSTANT_INVOKEDYNAMIC_METHOD = "±íÊ¾Ò»¸ö¶¯Ì¬·½·¨µ÷ÓÃµã";
+	private static final String CONSTANT_METHODHANDLE_METHOD = "è¡¨ç¤ºæ–¹æ³•å¥æŸ„";
+	private static final String CONSTANT_METHODTYPE_METHOD = "æ ‡è¯†æ–¹æ³•ç±»å‹";
+	private static final String CONSTANT_INVOKEDYNAMIC_METHOD = "è¡¨ç¤ºä¸€ä¸ªåŠ¨æ€æ–¹æ³•è°ƒç”¨ç‚¹";
 
 	private static Map<Integer, String> mapInfo = new HashMap<>();
 	private static Map<Integer, String> mapMethod = new HashMap<>();

@@ -3,13 +3,13 @@ package com.classparser.bean;
 import java.util.List;
 
 public class ConstantPool {
-	// ĞòºÅ
+	// åºå·
 	private int serialNumber;
-	// ÀàĞÍ
+	// ç±»å‹
 	private int type;
-	// Öµ
+	// å€¼
 	private Object value;
-	// Ë÷Òı
+	// ç´¢å¼•
 	private List<Integer> indexs;
 
 	public int getSerialNumber() {

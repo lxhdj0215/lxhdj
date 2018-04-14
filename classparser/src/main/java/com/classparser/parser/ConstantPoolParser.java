@@ -9,18 +9,18 @@ import com.classparser.bean.ConstantPool;
 import com.classparser.util.ClassUtil;
 
 public class ConstantPoolParser {
-	// UTF-8 ±àÂëµÄ×Ö·û´®£º1
+	// UTF-8 ç¼–ç çš„å­—ç¬¦ä¸²ï¼š1
 	public static ConstantPool parserUtf8Info(InputStream in) throws IOException {
 		int length = ClassUtil.readInteger(in, 2);
 		String str = ClassUtil.readStr(in, length);
-		System.out.println("\tÃû³Æ£º" + str);
+		System.out.println("\tåç§°ï¼š" + str);
 		ConstantPool pool = new ConstantPool();
 		pool.setType(1);
 		pool.setValue(str);
 		return pool;
 	}
 
-	// ÕûĞÎ×ÖÃæÁ¿£º3
+	// æ•´å½¢å­—é¢é‡ï¼š3
 	public static ConstantPool readIntegerInfo(InputStream in) throws IOException {
 		int i = ClassUtil.readInteger(in, 4);
 		System.out.println(i);
@@ -28,10 +28,10 @@ public class ConstantPoolParser {
 		pool.setType(3);
 		pool.setValue(i);
 		return pool;
-		
+
 	}
 
-	// ¸¡µãĞÍ×ÖÃæÁ¿£º4
+	// æµ®ç‚¹å‹å­—é¢é‡ï¼š4
 	public static ConstantPool readFloatInfo(InputStream in) throws IOException {
 		float f = ClassUtil.readFloat(in);
 		System.out.println(f);
@@ -41,7 +41,7 @@ public class ConstantPoolParser {
 		return pool;
 	}
 
-	// ³¤ÕûĞÎ×ÖÃæÁ¿£º5
+	// é•¿æ•´å½¢å­—é¢é‡ï¼š5
 	public static ConstantPool readLongInfo(InputStream in) throws IOException {
 		long l = ClassUtil.readLong(in);
 		System.out.println(l);
@@ -51,7 +51,7 @@ public class ConstantPoolParser {
 		return pool;
 	}
 
-	// Ë«¾«¶È¸¡µãĞÍ×ÖÃæÁ¿£º6
+	// åŒç²¾åº¦æµ®ç‚¹å‹å­—é¢é‡ï¼š6
 	public static ConstantPool readDoubleInfo(InputStream in) throws IOException {
 		double d = ClassUtil.readDouble(in);
 		System.out.println(d);
@@ -61,11 +61,11 @@ public class ConstantPoolParser {
 		return pool;
 	}
 
-	// Àà»ò½Ó¿ÚµÄ·ûºÅÒıÓÃ£º7
+	// ç±»æˆ–æ¥å£çš„ç¬¦å·å¼•ç”¨ï¼š7
 	public static ConstantPool readClassInfo(InputStream in) throws IOException {
 		// name_index
 		int index = ClassUtil.readInteger(in, 2);
-		System.out.println("\tË÷ÒıÖµ£º" + index);
+		System.out.println("\tç´¢å¼•å€¼ï¼š" + index);
 		ConstantPool pool = new ConstantPool();
 		pool.setType(7);
 		List<Integer> indexs = new ArrayList<>(1);
@@ -74,11 +74,11 @@ public class ConstantPoolParser {
 		return pool;
 	}
 
-	// ×Ö·û´®ÀàĞÍ×ÖÃæÁ¿£º8
+	// å­—ç¬¦ä¸²ç±»å‹å­—é¢é‡ï¼š8
 	public static ConstantPool readStringInfo(InputStream in) throws IOException {
 		// name_index
 		int index = ClassUtil.readInteger(in, 2);
-		System.out.println("\tË÷ÒıÖµ£º" + index);
+		System.out.println("\tç´¢å¼•å€¼ï¼š" + index);
 		ConstantPool pool = new ConstantPool();
 		pool.setType(8);
 		List<Integer> indexs = new ArrayList<>(1);
@@ -87,12 +87,12 @@ public class ConstantPoolParser {
 		return pool;
 	}
 
-	// ×Ö¶ÎµÄ·ûºÅÒıÓÃ£º9
+	// å­—æ®µçš„ç¬¦å·å¼•ç”¨ï¼š9
 	public static ConstantPool readFieldRefInfo(InputStream in) throws IOException {
 		int index1 = ClassUtil.readInteger(in, 2);
 		int index2 = ClassUtil.readInteger(in, 2);
-		System.out.print("£º" + index1);
-		System.out.println("£º" + index2);
+		System.out.print("ï¼š" + index1);
+		System.out.println("ï¼š" + index2);
 		ConstantPool pool = new ConstantPool();
 		pool.setType(9);
 		List<Integer> indexs = new ArrayList<>(1);
@@ -102,12 +102,12 @@ public class ConstantPoolParser {
 		return pool;
 	}
 
-	// ÀàÖĞ·½·¨µÄ·ûºÅÒıÓÃ£º10
+	// ç±»ä¸­æ–¹æ³•çš„ç¬¦å·å¼•ç”¨ï¼š10
 	public static ConstantPool readMethodRefInfo(InputStream in) throws IOException {
 		int index1 = ClassUtil.readInteger(in, 2);
 		int index2 = ClassUtil.readInteger(in, 2);
-		System.out.print("£º" + index1);
-		System.out.println("£º" + index2);
+		System.out.print("ï¼š" + index1);
+		System.out.println("ï¼š" + index2);
 		ConstantPool pool = new ConstantPool();
 		pool.setType(10);
 		List<Integer> indexs = new ArrayList<>(1);
@@ -117,12 +117,12 @@ public class ConstantPoolParser {
 		return pool;
 	}
 
-	// ½Ó¿ÚÖĞ·½·¨µÄ·ûºÅÒıÓÃ£º11
+	// æ¥å£ä¸­æ–¹æ³•çš„ç¬¦å·å¼•ç”¨ï¼š11
 	public static ConstantPool readInterfaceMethodRefInfo(InputStream in) throws IOException {
 		int index1 = ClassUtil.readInteger(in, 2);
 		int index2 = ClassUtil.readInteger(in, 2);
-		System.out.print("£º" + index1);
-		System.out.println("£º" + index2);
+		System.out.print("ï¼š" + index1);
+		System.out.println("ï¼š" + index2);
 		ConstantPool pool = new ConstantPool();
 		pool.setType(11);
 		List<Integer> indexs = new ArrayList<>(1);
@@ -132,12 +132,12 @@ public class ConstantPoolParser {
 		return pool;
 	}
 
-	// ×Ö¶Î»ò·½·¨µÄ·ûºÅÒıÓÃ£º12
+	// å­—æ®µæˆ–æ–¹æ³•çš„ç¬¦å·å¼•ç”¨ï¼š12
 	public static ConstantPool readNameAndTypeInfo(InputStream in) throws IOException {
 		int index1 = ClassUtil.readInteger(in, 2);
 		int index2 = ClassUtil.readInteger(in, 2);
-		System.out.print("£º" + index1);
-		System.out.println("£º" + index2);
+		System.out.print("ï¼š" + index1);
+		System.out.println("ï¼š" + index2);
 		ConstantPool pool = new ConstantPool();
 		pool.setType(12);
 		List<Integer> indexs = new ArrayList<>(1);

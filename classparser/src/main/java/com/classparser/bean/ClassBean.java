@@ -3,15 +3,15 @@ package com.classparser.bean;
 import java.util.Map;
 
 public class ClassBean {
-	// Ä§Êı
+	// é­”æ•°
 	private String magic;
-	// ´Î°æ±¾ºÅ
+	// æ¬¡ç‰ˆæœ¬å·
 	private int minor_version;
-	// Ö÷°æ±¾ºÅ
+	// ä¸»ç‰ˆæœ¬å·
 	private int major_version;
-	// ³£Á¿³ØÈİÁ¿
+	// å¸¸é‡æ± å®¹é‡
 	private int constant_pool_count;
-	// ³£Á¿³Ø
+	// å¸¸é‡æ± 
 	private Map<Integer, ConstantPool> map;
 
 	public String getMagic() {

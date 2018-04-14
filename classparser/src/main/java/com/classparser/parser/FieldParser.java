@@ -14,57 +14,57 @@ public class FieldParser {
 	public static String getFildType(String descriptor) {
 		String type = "";
 		switch (descriptor) {
-		case "B":
-			type = "byte";
-			break;
-		case "C":
-			type = "char";
-			break;
-		case "D":
-			type = "double";
-			break;
-		case "F":
-			type = "float";
-			break;
-		case "I":
-			type = "int";
-			break;
-		case "J":
-			type = "long";
-			break;
-		case "S":
-			type = "short";
-			break;
-		case "Z":
-			type = "boolean";
-			break;
-		case "V":
-			type = "void";
-			break;
-		case "L":
-			type = "object";
-			break;
-		default:
-			break;
+			case "B":
+				type = "byte";
+				break;
+			case "C":
+				type = "char";
+				break;
+			case "D":
+				type = "double";
+				break;
+			case "F":
+				type = "float";
+				break;
+			case "I":
+				type = "int";
+				break;
+			case "J":
+				type = "long";
+				break;
+			case "S":
+				type = "short";
+				break;
+			case "Z":
+				type = "boolean";
+				break;
+			case "V":
+				type = "void";
+				break;
+			case "L":
+				type = "object";
+				break;
+			default:
+				break;
 		}
 		return type;
 	}
 
 	public static void readFields(InputStream in, Map<Integer, ConstantPool> map) throws IOException {
 		int access_flags = ClassUtil.readInteger(in, 2);
-		System.out.println("\taccess_flags£º" + access_flags);
+		System.out.println("\taccess_flagsï¼š" + access_flags);
 		FieldParser.readAccessFlags(access_flags);
 		int name_index = ClassUtil.readInteger(in, 2);
-		System.out.print("\tname_index£º" + name_index);
+		System.out.print("\tname_indexï¼š" + name_index);
 		List<String> name = ClassUtil.getValue(map, name_index);
-		System.out.println("£º" + name);
+		System.out.println("ï¼š" + name);
 		int descriptor_index = ClassUtil.readInteger(in, 2);
-		System.out.print("\tdescriptor£º" + descriptor_index);
+		System.out.print("\tdescriptorï¼š" + descriptor_index);
 		List<String> descriptor = ClassUtil.getValue(map, descriptor_index);
-		System.out.print("£º" + descriptor);
-		System.out.println("£º" + getFildType(descriptor.get(0)));
+		System.out.print("ï¼š" + descriptor);
+		System.out.println("ï¼š" + getFildType(descriptor.get(0)));
 		int attributes_count = ClassUtil.readInteger(in, 2);
-		System.out.println("\tattributes_count£º" + attributes_count);
+		System.out.println("\tattributes_countï¼š" + attributes_count);
 		for (int i = 0; i < attributes_count; i++) {
 			AttributeParser.parserAttribute(in, map);
 		}
@@ -72,50 +72,50 @@ public class FieldParser {
 
 	public static void readAccessFlags(int access_flags) {
 		int flag;
-		// ÊÇ·ñÎªpublic ÀàÐÍ
+		// æ˜¯å¦ä¸ºpublic ç±»åž‹
 		flag = access_flags & FieldType.ACC_PUBLIC.getValue();
 		if (flag == FieldType.ACC_PUBLIC.getValue()) {
-			System.out.println("public£ºÊÇ");
+			System.out.println("publicï¼šæ˜¯");
 		}
-		// ÊÇ·ñÎªprivate ÀàÐÍ
+		// æ˜¯å¦ä¸ºprivate ç±»åž‹
 		flag = access_flags & FieldType.ACC_PRIVATE.getValue();
 		if (flag == FieldType.ACC_PRIVATE.getValue()) {
-			System.out.println("private£ºÊÇ");
+			System.out.println("privateï¼šæ˜¯");
 		}
-		// ÊÇ·ñÎªprotected ÀàÐÍ
+		// æ˜¯å¦ä¸ºprotected ç±»åž‹
 		flag = access_flags & FieldType.ACC_PROTECTED.getValue();
 		if (flag == FieldType.ACC_PROTECTED.getValue()) {
-			System.out.println("protected£ºÊÇ");
+			System.out.println("protectedï¼šæ˜¯");
 		}
-		// ÊÇ·ñÎªstatic ÀàÐÍ
+		// æ˜¯å¦ä¸ºstatic ç±»åž‹
 		flag = access_flags & FieldType.ACC_STATIC.getValue();
 		if (flag == FieldType.ACC_STATIC.getValue()) {
-			System.out.println("static£ºÊÇ");
+			System.out.println("staticï¼šæ˜¯");
 		}
 		// final
 		flag = access_flags & FieldType.ACC_FINAL.getValue();
 		if (flag == FieldType.ACC_FINAL.getValue()) {
-			System.out.println("final£ºÊÇ");
+			System.out.println("finalï¼šæ˜¯");
 		}
 		// volatile
 		flag = access_flags & FieldType.ACC_VOLATILE.getValue();
 		if (flag == FieldType.ACC_VOLATILE.getValue()) {
-			System.out.println("volatile£ºÊÇ");
+			System.out.println("volatileï¼šæ˜¯");
 		}
 		// transient
 		flag = access_flags & FieldType.ACC_TRANSIENT.getValue();
 		if (flag == FieldType.ACC_TRANSIENT.getValue()) {
-			System.out.println("transient£ºÊÇ");
+			System.out.println("transientï¼šæ˜¯");
 		}
 		// synthetic
 		flag = access_flags & FieldType.ACC_SYNTHETIC.getValue();
 		if (flag == FieldType.ACC_SYNTHETIC.getValue()) {
-			System.out.println("synthetic£ºÊÇ");
+			System.out.println("syntheticï¼šæ˜¯");
 		}
 		// enum
 		flag = access_flags & FieldType.ACC_ENUM.getValue();
 		if (flag == FieldType.ACC_ENUM.getValue()) {
-			System.out.println("enum£ºÊÇ");
+			System.out.println("enumï¼šæ˜¯");
 		}
 	}
 }
