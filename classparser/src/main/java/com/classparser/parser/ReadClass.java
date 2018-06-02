@@ -29,7 +29,7 @@ public class ReadClass {
 	}
 
 	public static void read() throws IOException, ReflectiveOperationException, SecurityException {
-		File file = new File("D:\\Hello.class");
+		File file = new File("D:\\Constants.class");
 		byte[] bytes = CommonUtil.readFileToByteArray(file);
 		InputStream in = new ByteArrayInputStream(bytes);
 		ClassBean classBean = new ClassBean();
